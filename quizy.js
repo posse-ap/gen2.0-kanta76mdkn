@@ -49,20 +49,20 @@ let picture = [
     ['https://d1khcm40x1j0f.cloudfront.net/words/34508ddb0789ee73471b9f17977e7c9c.png'],
 ];
 let content = "";
-for(let count=0;count < 11 ; count++){
+for(let count=0;count < 10 ; count++){
     content +=
-        '<h2><p class="question_question">' +[count]+',この地名なんと読む？'+'</p></h2>'+
+        '<h2><p class="question_question">' +[count+1]+',この地名なんと読む？'+'</p></h2>'+
             '<img src='+picture[count]+'>'+
-            '<ul>'+
-                '<div class="li" id=question'+count+'-true>'+quizSet[count][0]+'</div>'+
-                '<div class="li" id=question'+count+'-false1>'+quizSet[count][1]+'</div>'+
-                '<div class="li" id=question'+count+'-false2>'+quizSet[count][2]+'</div>'+
-            '</ul>'+
-            '<section class="answer_box" id="answer-box-'+count+'">'+
-                '<span class="q_true" id="q'+count+'-true">正解！</span>'+
-                '<span class="q_false" id="q'+count+'-false">不正解！</span>'+
+            '<div>'+
+                '<div class="li" id="question'+count+'-true" >'+quizSet[count][0]+'</div>'+
+                '<div class="li" id="question'+count+'-false1">'+quizSet[count][1]+'</div>'+
+                '<div class="li" id="question'+count+'-false2">'+quizSet[count][2]+'</div>'+
+            '</div>'+
+            '<section class="answer_box" id="answer-box">'+
+                '<span class="q_true" id="q-true">正解！</span>'+
+                '<span class="q_false" id="q-false">不正解！</span>'+
                 '<div class="q_answer" id="q'+count+'-answer">'+
-                    '正解は「'+quizSet[count-1][0]+'」です！'
+                    '正解は「'+quizSet[count][0]+'」です！'
                 +'</div>'+
             '</section>'
 container.innerHTML = content;
@@ -76,17 +76,72 @@ container.innerHTML = content;
 
 
 
-}
+
+
+// function shuffle(arr) {
+//     for (let i = arr.length - 1; i > 0; i--) {
+//       const j = Math.floor(Math.random() * (i + 1));
+//       [arr[j], arr[i]] = [arr[i], arr[j]];
+//     }
+//     return arr;
+//   }
+
+//   const shuffledChoices = shuffle([...quizSet[currentNum].c]);
+//   shuffledChoices.forEach(choice => {
+//     const li = document.createElement('li');
+//     li.textContent = choice;
+//     choices.appendChild(li);
+//   });
 
 
 
 
 
+// let serectTrue = document.getElementById('question'+count+'-true');
+// let serectFalse1 = document.getElementById('question'+count+'-false1');
+// let serectFalse2 = document.getElementById('question'+count+'-false2');
+// let result = document.getElementById('answer-box');
+// let correctAnswer = document.getElementById('q-true');
+// let wrongAnswer = document.getElementById('q-false');
 
+
+//     serectTrue.addEventListener("click", ok);
+//     serectFalse1.addEventListener("click", error1);
+//     serectFalse2.addEventListener("click", error2);
+
+
+//     function ok() {
+//         serectTrue.classList.add("");
+//         serectFalse1.classList.remove("false");
+//         serectFalse2.classList.remove("false");
+
+//         correctAnswer.classList.remove("disAppear");
+//         incorrect.classList.add("disAppear");
+//     }
+
+//     function error1() {
+//         serectTrue.classList.remove("right");
+//         serectFalse1.classList.add("false");
+//         serectFalse2.classList.remove("false");
+  
+//         incorrect.classList.remove('disAppear');
+//         correctAnswer.classList.add('disAppear')
+//     }
+
+//     function error2() {
+//         serectTrue.classList.remove("right");
+//         serectFalse1.classList.remove("false");
+//         serectFalse2.classList.add("false");
+  
+//         incorrect.classList.remove('disAppear');
+//         correctAnswer.classList.add('disAppear');
+//     }
+    
 
 
         
     document.getElementById('question'+count+'-true').addEventListener('click',()=>{
+        console.log('あ');
         document.getElementById('question'+count+'-true').style.background = '#287dff';
         document.getElementById('question'+count+'-true').style.color = 'white';
         document.getElementById('answer-box-'+count).style.display="block";
@@ -127,4 +182,4 @@ container.innerHTML = content;
 
 
 
-
+}
