@@ -1,7 +1,5 @@
-console.log('kakuninnsimasita')
-
-
 let container = document.getElementById('container');
+
 let quizSet = [
  ['たかなわ','たかわ','こうわ'],
  ['かめいど','かめど','かめと'],
@@ -14,6 +12,7 @@ let quizSet = [
  ['ししぼね','ろっこつ','しこね'],
  ['こぐれ','こばく','こしゃく'],
 ]
+
 let picture = [
     ['https://d1khcm40x1j0f.cloudfront.net/quiz/34d20397a2a506fe2c1ee636dc011a07.png'],
     ['https://d1khcm40x1j0f.cloudfront.net/quiz/512b8146e7661821c45dbb8fefedf731.png'],
@@ -56,10 +55,6 @@ for(let count=0;count < 10 ; count++){
             '</section>'
 container.innerHTML = content;
 }
-
-console.log(shuffleArray);
-   
-
 
 //１問目の１選択肢目を選んだ時　clickfunction(0,0)
 function clickfunction (questionNo,click) {
