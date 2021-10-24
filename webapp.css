@@ -1,0 +1,107 @@
+body{
+    width: 1400px;
+    background-color: lightgray;
+
+}
+
+.header{
+    display: block;
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    z-index: 1000;
+    box-shadow: 5px;
+    height: 64px;
+}
+.header__container{
+    display: flex;
+    /* background-attachment: fixed; */
+}
+.header__logo{
+    width: 15%;
+    margin:15px;
+
+}
+.logo{
+    height: 25px;
+}
+.header__date{
+    width: 8%;
+}
+.week{
+    color: lightblue;
+}
+.header__button{
+    width: 20%;
+    margin-left: 50%;
+    background-color: blue;
+    border-radius: 100px;
+    text-align: center;
+}
+
+
+
+.main{
+
+    margin: 64px,20px;
+    display: flex;
+}
+.left_box{
+    margin-top: 80px;
+    width: 45%;
+    height:600px;
+}
+
+
+.left_up_box{
+    width: 100%;
+    display: flex;
+}
+.left_up_content_box{
+    width: 30%;
+    background-color: white;
+    border-radius: 10px;
+    margin: 20px;
+    box-sizing: border-box;
+
+}
+.content_theme{
+    font-weight: bold;
+    color: blue; 
+    text-align: center;   
+}
+.content_index{
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: center; 
+}
+.hour{
+    color: lightblue;
+    text-align: center; 
+}
+.left_down_box{
+    height: 400px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+.right_box{
+    width: 50%;
+    height: 700px;
+    margin: 20px;
+    display: flex;
+}
+
+.lamgege_box{
+    width: 48%;
+    height: 700px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.content_box{
+    width: 48%;
+    background-color: white;
+    border-radius: 10px;
+}
