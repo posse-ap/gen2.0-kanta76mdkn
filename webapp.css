@@ -42,7 +42,6 @@ body{
 
 
 .main{
-
     margin: 64px,20px;
     display: flex;
 }
@@ -87,21 +86,40 @@ body{
     box-sizing: border-box;
 }
 .right_box{
-    width: 50%;
-    height: 700px;
-    margin: 20px;
+    width: 45%;
+    height: 600px;
+    margin-top: 80px;
+    margin-left: 20px;
+    /* background-color: blueviolet; */
     display: flex;
 }
 
-.lamgege_box{
+.language_box{
+    margin-top: 20px;
     width: 48%;
-    height: 700px;
+    height: 100%;
     background-color: white;
     border-radius: 10px;
+    z-index: 1000;
+}
+.right_box_title{
+    font-size: x-large;
 }
 
 .content_box{
     width: 48%;
+    height: 100%;
+    margin-top: 20px;
     background-color: white;
     border-radius: 10px;
+}
+
+
+
+.footer_box{
+    height:30px ;
+    position: fixed;
+}
+.page_box{
+    text-align: center;
 }
