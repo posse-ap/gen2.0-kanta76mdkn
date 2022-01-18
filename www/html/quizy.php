@@ -15,6 +15,7 @@ require("./db_connect.php");
 
 <body>
     <h1><p class="quiz-title">ガチで東京の人しか解けない！ #東京の難読地名クイズ</p></h1>
+    <!-- 無駄な一文 -->
     
     <div id = "container"></div>
     <script src="quizy.js"></script>
