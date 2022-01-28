@@ -1,5 +1,11 @@
 <?php
 require("./db_connect.php");
+
+if(isset($_GET['1'])) { $id = $_GET['1']; };
+
+if(isset($_GET['2'])) { $id = $_GET['2']; };
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
