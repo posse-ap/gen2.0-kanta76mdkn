@@ -36,7 +36,7 @@ body {
   /*線の太さ*/
   transform: translateX(0%);
   /*位置調整*/
-  background-color: #00ab36;
+  background-color: #04AB36;
   /*線の色*/
   border-radius: 2px;
   /*線の丸み*/
@@ -86,7 +86,7 @@ body {
   padding-bottom: 3px;
   margin-bottom: 10px;
   display: inline-block;
-  border-bottom: 3px solid #287dff;
+  border-bottom: 3px solid #297CFF;
 }
 
 
