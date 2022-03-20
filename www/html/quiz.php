@@ -19,6 +19,9 @@ $big_question = $big_question_stmt->fetchAll();
 // ここで初めてphpで利用できるようなオブジェクトになる。fetchだったら1行。allまでつけてしまったら余計なものまでついてくる。他のところではほぼall使う。
 print_r($big_question)
 
+// dbの中からsql文を実行する。sqlぶんが格納されるprepareとexecuteがセット。queryはexecute&prepareはまだ実行していない、格納する。executeで実行、
+
+
 
 
 
