@@ -8,7 +8,7 @@ if(!isset($page_id)){
 // もしidを記述しないまま直接アクセスしようとするとindex.phpに戻される仕組み。Amazonでログインしないまま買い物しようとするとログイン画面に戻される的な。
 
 
-$big_question_stmt = $db->prepare("select title from big_questions where id =? ");
+$big_question_stmt = $db->prepare("select * from big_questions where id =? ");
 // prepareについて：括弧内のsql文を発効しますよって感じ？
 // sql文を最初に用意しておいてクエリ内のパラメータの値だけを変更してクエリを実行。？に何かが埋め込まれて初めて動き出すもの。
 // queryはすぐ実行しますよってやつ
