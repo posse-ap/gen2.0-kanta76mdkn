@@ -1,6 +1,6 @@
 <?php
 $dsn = 'mysql:host=db;dbname=ph2_quizy;charset=utf8;';
-$user = 'root';
+$user = 'kanta';
 $password = 'posse';
 
 try {
