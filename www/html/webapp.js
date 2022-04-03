@@ -4,26 +4,33 @@
 const modalContainer = document.getElementById("modalContainer");
 const background = document.getElementById("background");
 
+// モーダル出現
 function showModal() {
   modalContainer.style.display = "block";
   background.style.display = "block";
 }
 
+// モーダル消える
 function closeModal() {
   modalContainer.style.display = "none";
   background.style.display = "none";
 }
 
+
 const postedContainer = document.getElementById("postedContainer");
+
+
 
 function showPosted() {
   postedContainer.style.display = "block";
   background.style.display = "block";
 }
+
 function closePosted() {
   postedContainer.style.display = "none";
   background.style.display = "none";
 }
+
 
 $(".modal_record_and_post_btn").on("click", function () {
   $("#overlay").fadeIn(500);
@@ -33,6 +40,9 @@ $(".modal_record_and_post_btn").on("click", function () {
     showPosted();
   }, 3000);
 });
+
+
+
 
 var dataLabelPlugin = {
   afterDatasetsDraw: function (chart, easing) {
@@ -81,6 +91,7 @@ var dataLabelPlugin = {
   },
 };
 
+// 学習言語の円グラフ
 var ctx = document.getElementById("circleGrafLanguages");
 var circleGrafLanguages = new Chart(ctx, {
   type: "doughnut",
@@ -106,8 +117,8 @@ var circleGrafLanguages = new Chart(ctx, {
           "#654fe4",
           "#412ce5",
           "#291db9",
-        ],
-        data: [30, 20, 10, 5, 20, 20, 10],
+        ], //色の指定
+        data: [30, 20, 10, 5, 20, 20, 10], //数値代入
       },
     ],
   },
@@ -127,15 +138,18 @@ var circleGrafLanguages = new Chart(ctx, {
   plugins: [dataLabelPlugin],
 });
 
+
+// 学習言語の円グラフについて
+
 var ctx = document.getElementById("circleGrafContents");
 var circleGrafContents = new Chart(ctx, {
   type: "doughnut",
   data: {
-    labels: ["N予備校", "ドットインストール", "POSSE課題"],
+    labels: ["N予備校", "ドットインストール", "POSSE課題"], //内容
     datasets: [
       {
-        backgroundColor: ["#2d72b8", "#204be3", "#55bbda"],
-        data: [40, 20, 40],
+        backgroundColor: ["#2d72b8", "#204be3", "#55bbda"], //色の指定
+        data: [40, 20, 40], //実際の数値代入
       },
     ],
   },
@@ -164,6 +178,9 @@ var circleGrafContents = new Chart(ctx, {
   plugins: [dataLabelPlugin],
 });
 
+
+
+// 棒グラフについて
 var ctx = document.getElementById("myBarChart");
 var myBarChart = new Chart(ctx, {
   type: "bar",
@@ -195,15 +212,15 @@ var myBarChart = new Chart(ctx, {
       28,
       "",
       30,
-    ],
+    ], //x軸の値のメモリ
     datasets: [
       {
         label: "hours",
         data: [
           3, 4, 5, 3, 0, 0, 4, 2, 2, 8, 8, 2, 2, 1, 7, 4, 4, 3, 3, 3, 2, 2, 6,
           2, 2, 1, 1, 7, 8,
-        ],
-        backgroundColor: "#3f8dcb",
+        ], //時間(実査のy軸の値)の代入
+        backgroundColor: "#3f8dcb", //色の指定
       },
     ],
   },
@@ -251,25 +268,28 @@ var myBarChart = new Chart(ctx, {
   },
 });
 
-//   Twitterに投稿するところ
 
-//   document.getElementById("modalFormAnchor").addEventListener('click', function(event) {
-//     if(document.modal_form.tweet.checked) {
 
-//       event.preventDefault();
+// Twitterに投稿するところ
+const modalFormAnchor = document.getElementById("modalFormAnchor");
+modalFormAnchor.addEventListener('click', function(event) {
+    if(document.modal_form.tweet.checked) {
 
-//       var left = Math.round(window.screen.width / 2 - 275);
-//       var top = (window.screen.height > 420) ? Math.round(window.screen.height / 2 - 210) : 0;
-//       window.open(
-//           "https://twitter.com/intent/tweet?text=" + encodeURIComponent(document.getElementById("twitter").value),
-//           null,
-//           "scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=550,height=420,left=" + left + ",top=" + top);
+      event.preventDefault();
 
-//     }
-// });
+      var left = Math.round(window.screen.width / 2 - 275);
+      var top = (window.screen.height > 420) ? Math.round(window.screen.height / 2 - 210) : 0;
+      window.open(
+          "https://twitter.com/intent/tweet?text=" + encodeURIComponent(document.getElementById("twitter").value),
+          null,
+          "scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=550,height=420,left=" + left + ",top=" + top);
+
+    }
+});
+
+
 
 var remove = 0;
-
 function radioDeselection(already, numeric) {
   if (remove == numeric) {
     already.checked = false;
