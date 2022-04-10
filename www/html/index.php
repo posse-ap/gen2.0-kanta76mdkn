@@ -3,15 +3,68 @@
 require("./db_connect.php");
 // あるものを呼び出す際に使うやつ,相対パス
 
+
 $title = "4/3";
 
-$todaytimes = "2";
 
-$monthStudyTimes = "243";
+// 今日の学習時間
+$today_stmt = $db->query("SELECT studytimes FROM studyrecords WHERE studydate = CURDATE()");
+$todaytimes = $today_stmt->fetch() ?: 0;
+
+
+// $todaytimes = "2";
+
+//今月の学習時間
+// どっちかをもう片方に合わせるのではなく、両方別の同じフォーマットに合わせれば楽
+$month_stmt = $db->query("SELECT SUM(studytimes) FROM studyrecords WHERE DATE_FORMAT(studydate, '%M/%Y') = DATE_FORMAT(now(), '%M/%Y')");
+$monthStudyTimes = $month_stmt->fetch() ?: 0;
+
+// $monthStudyTimes = "243";
 
 $totalStudyTimes = "134";
 
-$checkDates = "2022-4-1"
+//合計学習時間
+$total_stmt = $db->query("SELECT SUM(studytimes) FROM studyrecords");
+$totalStudyTimes = $total_stmt->fetch() ?: 0;
+
+$checkDates = "2022-4-1";
+
+
+
+// ごそっと今月のデータを持ってくればいい
+$monthlist_stmt = $db->query("SELECT studytimes FROM studyrecords WHERE DATE_FORMAT(studydate, '%M/%Y') = DATE_FORMAT(now(), '%M/%Y') ");
+$monthlist = $monthlist_stmt->fetchAll();
+
+// var_dump($monthlist[0]["studytimes"], $monthlist[0][0]);
+
+// ビャーキャラは文字
+// sとリングも文字
+$monthTimesList = [];
+// $monthTimesList[] = 1;
+// $monthTimesList[] = 2;
+// $monthTimesList = [1, 2];
+// foreach (回す配列 as 単体) ｛
+// 単体 = $monthlist[数字]
+// $monthTimesListに単体の中身を入れたい
+// }
+// [ 'studytimes' => '1', 0 => '1' ];
+// $montheachlist = $mothlist[0]
+// $montheachlist = $mothlist[1]
+// $montheachlist = $mothlist[2]
+foreach($monthlist as $montheachlist){
+$monthTimesList[] = (int)$montheachlist["studytimes"];
+}
+
+// json_encodeを使えばjsonに直したのを返してくれる json_encode(jsonにしたいやつ);
+
+$monthstudylistjson = json_encode($monthTimesList);
+
+
+
+
+
+// array(17) { [0]=> array(2) { ["studytimes"]=> string(1) "1" [0]=> string(1) "1" } [1]=> array(2) { ["studytimes"]=> string(1) "2" [0]=> string(1) "2" } [2]=> array(2) { ["studytimes"]=> string(1) "1" [0]=> string(1) "1" } [3]=> array(2) { ["studytimes"]=> string(1) "1" [0]=> string(1) "1" } [4]=> array(2) { ["studytimes"]=> string(1) "4" [0]=> string(1) "4" } [5]=> array(2) { ["studytimes"]=> string(1) "2" [0]=> string(1) "2" } [6]=> array(2) { ["studytimes"]=> string(1) "3" [0]=> string(1) "3" } [7]=> array(2) { ["studytimes"]=> string(1) "2" [0]=> string(1) "2" } [8]=> array(2) { ["studytimes"]=> string(1) "3" [0]=> string(1) "3" } [9]=> array(2) { ["studytimes"]=> string(1) "2" [0]=> string(1) "2" } [10]=> array(2) { ["studytimes"]=> string(1) "2" [0]=> string(1) "2" } [11]=> array(2) { ["studytimes"]=> string(1) "1" [0]=> string(1) "1" } [12]=> array(2) { ["studytimes"]=> string(1) "2" [0]=> string(1) "2" } [13]=> array(2) { ["studytimes"]=> string(1) "3" [0]=> string(1) "3" } [14]=> array(2) { ["studytimes"]=> string(1) "2" [0]=> string(1) "2" } [15]=> array(2) { ["studytimes"]=> string(1) "1" [0]=> string(1) "1" } [16]=> array(2) { ["studytimes"]=> string(1) "3" [0]=> string(1) "3" } };
+
 
 
 // ?=はif分が使えない、＜？phpを使う
@@ -34,7 +87,6 @@ $checkDates = "2022-4-1"
 </head>
 
 <body>
-
   <!-- ここからヘッダー -->
   <header class="header">
     <div class="header_logo_week">
@@ -59,17 +111,17 @@ $checkDates = "2022-4-1"
         <ul class="time_container">
           <li class="time_each">
             <p class="time_each_title">Today</p><br>
-            <p class="time_each_hours"><?= $todaytimes ?></p><br>
+            <p class="time_each_hours"><?= $todaytimes['studytimes'] ?></p><br>
             <p class="time_each_unit">hour</p>
           </li>
           <li class="time_each">
             <p class="time_each_title">Month</p><br>
-            <p class="time_each_hours"><?= $monthStudyTimes ?></p><br>
+            <p class="time_each_hours"><?= $monthStudyTimes['SUM(studytimes)'] ?></p><br>
             <p class="time_each_unit">hour</p>
           </li>
           <li class="time_each">
             <p class="time_each_title">Total</p><br>
-            <p class="time_each_hours"><?= $totalStudyTimes ?></p><br>
+            <p class="time_each_hours"><?= $totalStudyTimes['SUM(studytimes)']  ?></p><br>
             <p class="time_each_unit">hour</p>
           </li>
         </ul>
@@ -204,6 +256,9 @@ $checkDates = "2022-4-1"
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="./webapp.js"></script>
+
+  <?php require("./graph.php"); ?>
+
 </body>
 
 </html>
