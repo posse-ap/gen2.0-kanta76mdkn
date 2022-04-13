@@ -91,6 +91,17 @@ var dataLabelPlugin = {
   },
 };
 
+//今日の日付データを変数hidukeに格納
+var hiduke=new Date(); 
+
+//年・月・日・曜日を取得する
+var year = hiduke.getFullYear();
+var month = hiduke.getMonth()+1;
+var week = hiduke.getDay();
+var day = hiduke.getDate();
+
+
+document.write("<"+year+"-"+month+"-"+day+">");
 // // 学習言語の円グラフ
 // var ctx = document.getElementById("circleGrafLanguages");
 // var circleGrafLanguages = new Chart(ctx, {

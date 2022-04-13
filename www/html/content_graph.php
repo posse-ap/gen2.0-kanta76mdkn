@@ -12,13 +12,13 @@ $timeList = [];
 
 foreach($contentList as $eachContentList){
     if((int)$eachContentList["study_sum"] !== 0 && (int)$eachContentList["study_sum"] > 0 ){
-        $contentList[] = $eachContentList["content"];
+        $contentNameList[] = $eachContentList["content"];
         $contentColorList[] = $eachContentList["color"];
-        $timeList[] = $eachContentList["study_sum"];
+        $timeList[] = (int)$eachContentList["study_sum"];
     }
 };
 
-$contentNameListJson =$contentNameList = json_encode($contentNameList);
+$contentNameListJson  = json_encode($contentNameList);
 $contentColorListJson = json_encode($contentColorList);
 $timeListJson = json_encode($timeList);
 
@@ -35,7 +35,7 @@ var ctx = document.getElementById("circleGrafContents");
 var circleGrafContents = new Chart(ctx, {
   type: "doughnut",
   data: {
-    labels: contentLabels, //内容
+    labels: ["N予備校","POSSE課題","ドットインストール",], //内容
     datasets: [
       {
         backgroundColor: backgroundColorLabels, //色の指定

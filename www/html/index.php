@@ -59,6 +59,14 @@ $monthTimesList[] = (int)$montheachlist["studytimes"];
 
 $monthstudylistjson = json_encode($monthTimesList);
 
+date_default_timezone_set('Asia/Tokyo');
+$today = new DateTime('now');
+$day = new DateTime('2022-2-28');
+$diff = $day->diff($today);
+$checkdate =  $diff->days;
+$checkdateshow = ("$checkdate") / 7 ;
+$checkdateshowon = floor  ("$checkdateshow") ;
+
 
 
 
@@ -91,7 +99,7 @@ $monthstudylistjson = json_encode($monthTimesList);
   <header class="header">
     <div class="header_logo_week">
       <img src="./img/posse.png" alt="POSSEロゴ">
-      <p>5週目</p>
+      <p><?=$checkdateshowon; ?>週目</p>
     </div>
     <button class="header_record_and_post_btn" onclick="showModal()">記録・投稿</button>
   </header>
@@ -155,21 +163,6 @@ $monthstudylistjson = json_encode($monthTimesList);
       </ul>
 
     </div>
-    <script>
-
-//今日の日付データを変数hidukeに格納
-var hiduke=new Date(); 
-
-//年・月・日・曜日を取得する
-var year = hiduke.getFullYear();
-var month = hiduke.getMonth()+1;
-var week = hiduke.getDay();
-var day = hiduke.getDate();
-
-
-document.write("<"+year+"-"+month+"-"+day+">");
-
-</script>
 
     <!-- ここからフッター -->
     <div class="now_time_container">
