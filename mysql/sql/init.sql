@@ -65,14 +65,14 @@ VALUES
 
 
 -- 学習コンテンツテーブルを作る
-DROP TABLE IF EXISTS studytimerecords;
-CREATE TABLE studytimerecords (
+DROP TABLE IF EXISTS studycontent;
+CREATE TABLE studycontent (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `content` VARCHAR(255) NOT NULL,
   `color` VARCHAR(255) NOT NULL
 );
 
-INSERT INTO studytimerecords(content, color)
+INSERT INTO studycontent(content, color)
 VALUES
   ('N予備校', '#0445ec'),
   ('課題', '#0f70bd'),

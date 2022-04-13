@@ -91,92 +91,92 @@ var dataLabelPlugin = {
   },
 };
 
-// 学習言語の円グラフ
-var ctx = document.getElementById("circleGrafLanguages");
-var circleGrafLanguages = new Chart(ctx, {
-  type: "doughnut",
-  data: {
-    labels: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "PHP",
-      "Laravel",
-      "SQL",
-      "SHELL",
-      "その他",
-    ], //データ項目のラベル
-    datasets: [
-      {
-        backgroundColor: [
-          "#65ccf9",
-          "#2d72b8",
-          "#204be3",
-          "#55bbda",
-          "#aea1ee",
-          "#654fe4",
-          "#412ce5",
-          "#291db9",
-        ], //色の指定
-        data: [30, 20, 10, 5, 20, 20, 10], //数値代入
-      },
-    ],
-  },
-  options: {
-    legend: { position: "bottom" },
-    maintainAspectRatio: false,
-    responsive: true,
-    layout: {
-      padding: {
-        left: 30,
-        right: 30,
-        top: 0,
-        bottom: 50,
-      },
-    },
-  },
-  plugins: [dataLabelPlugin],
-});
+// // 学習言語の円グラフ
+// var ctx = document.getElementById("circleGrafLanguages");
+// var circleGrafLanguages = new Chart(ctx, {
+//   type: "doughnut",
+//   data: {
+//     labels: [
+//       "HTML",
+//       "CSS",
+//       "JavaScript",
+//       "PHP",
+//       "Laravel",
+//       "SQL",
+//       "SHELL",
+//       "その他",
+//     ], //データ項目のラベル
+//     datasets: [
+//       {
+//         backgroundColor: [
+//           "#65ccf9",
+//           "#2d72b8",
+//           "#204be3",
+//           "#55bbda",
+//           "#aea1ee",
+//           "#654fe4",
+//           "#412ce5",
+//           "#291db9",
+//         ], //色の指定
+//         data: [30, 20, 10, 5, 20, 20, 10], //数値代入
+//       },
+//     ],
+//   },
+//   options: {
+//     legend: { position: "bottom" },
+//     maintainAspectRatio: false,
+//     responsive: true,
+//     layout: {
+//       padding: {
+//         left: 30,
+//         right: 30,
+//         top: 0,
+//         bottom: 50,
+//       },
+//     },
+//   },
+//   plugins: [dataLabelPlugin],
+// });
 
 
-// 学習言語の円グラフについて
+// // 学習言語の円グラフについて
 
-var ctx = document.getElementById("circleGrafContents");
-var circleGrafContents = new Chart(ctx, {
-  type: "doughnut",
-  data: {
-    labels: ["N予備校", "ドットインストール", "POSSE課題"], //内容
-    datasets: [
-      {
-        backgroundColor: ["#2d72b8", "#204be3", "#55bbda"], //色の指定
-        data: [40, 20, 40], //実際の数値代入
-      },
-    ],
-  },
-  options: {
-    legend: {
-      position: "bottom",
-      layout: {
-        padding: {
-          top: 100,
-        },
-      },
-    },
-    maintainAspectRatio: false,
-    title: {
-      display: true,
-    },
-    layout: {
-      padding: {
-        left: 30,
-        right: 30,
-        top: 0,
-        bottom: 120,
-      },
-    },
-  },
-  plugins: [dataLabelPlugin],
-});
+// var ctx = document.getElementById("circleGrafContents");
+// var circleGrafContents = new Chart(ctx, {
+//   type: "doughnut",
+//   data: {
+//     labels: ["N予備校", "ドットインストール", "POSSE課題"], //内容
+//     datasets: [
+//       {
+//         backgroundColor: ["#2d72b8", "#204be3", "#55bbda"], //色の指定
+//         data: [40, 20, 40], //実際の数値代入
+//       },
+//     ],
+//   },
+//   options: {
+//     legend: {
+//       position: "bottom",
+//       layout: {
+//         padding: {
+//           top: 100,
+//         },
+//       },
+//     },
+//     maintainAspectRatio: false,
+//     title: {
+//       display: true,
+//     },
+//     layout: {
+//       padding: {
+//         left: 30,
+//         right: 30,
+//         top: 0,
+//         bottom: 120,
+//       },
+//     },
+//   },
+//   plugins: [dataLabelPlugin],
+// });
 
 
 

@@ -27,7 +27,7 @@ $totalStudyTimes = "134";
 $total_stmt = $db->query("SELECT SUM(studytimes) FROM studyrecords");
 $totalStudyTimes = $total_stmt->fetch() ?: 0;
 
-$checkDates = "2022-4-1";
+
 
 
 
@@ -155,13 +155,25 @@ $monthstudylistjson = json_encode($monthTimesList);
       </ul>
 
     </div>
+    <script>
 
+//今日の日付データを変数hidukeに格納
+var hiduke=new Date(); 
+
+//年・月・日・曜日を取得する
+var year = hiduke.getFullYear();
+var month = hiduke.getMonth()+1;
+var week = hiduke.getDay();
+var day = hiduke.getDate();
+
+
+document.write("<"+year+"-"+month+"-"+day+">");
+
+</script>
 
     <!-- ここからフッター -->
     <div class="now_time_container">
-      <p class="now_time_flame"><</p>
-      <p><?= $checkDates ?></p>
-      <p class="now_time_flame">></p>
+      <p class="now_time_flame" id= hiduke></p>
     </div>
 
     <button class="sp_record_and_post_btn" onclick="showModal()">記録・投稿</button>
@@ -242,14 +254,16 @@ $monthstudylistjson = json_encode($monthTimesList);
 
   </section>
 
+
+  
   <section id="postedContainer" class="posted_container">
     <span id="postedBackBtn" class="modal_back_btn" onclick="closePosted()"></span>
     <p>記録・投稿 完了しました</p>
   </section>
 
-  <!-- <div id="background"></div>
+  <div id="background"></div>
 
-  <div id="postedscreen" class="posted_screen"> -->
+  <div id="postedscreen" class="posted_screen">
 
   </div>
 
@@ -257,7 +271,10 @@ $monthstudylistjson = json_encode($monthTimesList);
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="./webapp.js"></script>
 
-  <?php require("./graph.php"); ?>
+  <?php require("./graph.php"); ?>;
+  <?php require("./language_graph.php"); ?>;
+  <?php require("./content_graph.php"); ?>;
+
 
 </body>
 
