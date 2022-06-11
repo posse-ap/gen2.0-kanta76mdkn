@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  db:
+    build:
+      context: ./db
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db/var/lib/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=laravel
+      - MYSQL_USER=laravel
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
+    platform: linux/x86_64
+  app:
+    build:
+      context: ./app
+    volumes:
+      - ../src:/work/backend
+    depends_on: ["db"]
+  web:
+    build:
+      context: ./web
+    ports:
+      - 80:80
+    volumes:
+      - ../src:/work/backend
+    depends_on: ["app"]
