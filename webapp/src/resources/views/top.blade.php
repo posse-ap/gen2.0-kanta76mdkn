@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>toppage</title>
+    <title>トップページ</title>
     <link rel="stylesheet" href="{{ asset('/webapp.css') }}">
 </head>
 
