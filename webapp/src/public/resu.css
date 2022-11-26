@@ -1,0 +1,82 @@
+@media screen and (max-width: 480px) {
+  /* スマホ版作るかぁ */
+
+  .header_record_and_post_btn {
+    display: none;
+  }
+
+  .main_container {
+    margin: 0 auto;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+  }
+
+  .time_bar_graf {
+    width: 100%;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .circle_graf_container {
+    margin-top: 20px;
+    width: 100%;
+    padding-left: 0%;
+    display: flex;
+    gap: 20px;
+  }
+
+  .time_bar_graf {
+    height: 35vh;
+  }
+  
+  .time_each {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    height: 13vh;
+  }
+
+  .bar_graf {
+    margin-top: 8vh;
+    height: 20vh;
+  }
+
+  .circle_graf_each {
+    height: 40vh;
+  }
+
+  .modal_container {
+    left: 0;
+    width: 100vw;
+  }
+
+  .modal_form {
+    flex-direction: column;
+  }
+
+  .modal_form_first {
+    margin-left: 2vw;
+    width: 95%;
+  }
+
+  .modal_form_second {
+    margin-left: 2vw;
+    width: 95%;
+  }
+
+  .modal_record_and_post_btn {
+    width: 90%;
+  }
+
+  .sp_record_and_post_btn {
+    display: block;
+    margin: 30px auto;
+    padding: 2%;
+    width: 40%;
+    border-radius: 30px;
+    color: white;
+    background: linear-gradient(to right, #0f71bc, #3ccfff);
+  }
+}
